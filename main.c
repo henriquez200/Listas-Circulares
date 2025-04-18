@@ -21,7 +21,7 @@ int main() {
         printf("8. Exibir musica atual\n");
         printf("0. Sair\n");
         scanf("%d", &opcao);
-        getchar(); // Limpa o '\n' do buffer
+        getchar(); 
 
         if (opcao == 1) {
             printf("Titulo: ");
@@ -32,7 +32,7 @@ int main() {
             fgets(artista, sizeof(artista), stdin);
             artista[strcspn(artista, "\n")] = '\0';
 
-            printf("Duracaoo (segundos): ");
+            printf("Duracaoo: ");
             scanf("%d", &duracao);
             getchar();
 

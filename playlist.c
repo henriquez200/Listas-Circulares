@@ -55,7 +55,7 @@ void adicionar_musica(Playlist* playlist, const char* titulo, const char* artist
     }
 
     playlist->tamanho++;
-    printf("Música \"%s\" adicionada com sucesso!\n", titulo);
+    printf("Musica \"%s\" adicionada com sucesso!\n", titulo);
 }
 
 int remover_musica(Playlist* playlist, const char* titulo) {
@@ -76,13 +76,13 @@ int remover_musica(Playlist* playlist, const char* titulo) {
             }
             free(atual);
             playlist->tamanho--;
-            printf("Música \"%s\" removida com sucesso!\n", titulo);
+            printf("Musica \"%s\" removida com sucesso!\n", titulo);
             return 1;
         }
         atual = atual->proxima;
     } while (atual != inicio);
 
-    printf("Música \"%s\" não encontrada!\n", titulo);
+    printf("Musica \"%s\" nao encontrada!\n", titulo);
     return 0;
 }
 
@@ -103,7 +103,7 @@ void musica_anterior(Playlist* playlist) {
 void alternar_modo_repeticao(Playlist* playlist) {
     if (playlist) {
         playlist->modo_repeticao = !playlist->modo_repeticao;
-        printf("Modo de repetição %s.\n", playlist->modo_repeticao ? "ativado" : "desativado");
+        printf("Modo de repeticaoo %s.\n", playlist->modo_repeticao ? "ativado" : "desativado");
     }
 }
 
@@ -117,7 +117,7 @@ void listar_musicas(Playlist* playlist) {
     Musica* inicio = atual;
     int i = 1;
 
-    printf("\n--- Músicas da Playlist ---\n");
+    printf("\n--- Musicas da Playlist ---\n");
     do {
         printf("%d. %s - %s (%d segundos)%s\n", i, atual->titulo, atual->artista, atual->duracao,
                atual == playlist->atual ? " <-- atual" : "");
@@ -134,13 +134,13 @@ Musica* buscar_musica(Playlist* playlist, const char* titulo) {
 
     do {
         if (strcmp(atual->titulo, titulo) == 0) {
-            printf("Música encontrada: %s - %s (%d segundos)\n", atual->titulo, atual->artista, atual->duracao);
+            printf("Musica encontrada: %s - %s (%d segundos)\n", atual->titulo, atual->artista, atual->duracao);
             return atual;
         }
         atual = atual->proxima;
     } while (atual != inicio);
 
-    printf("Música \"%s\" não encontrada.\n", titulo);
+    printf("Musica \"%s\" nao encontrada.\n", titulo);
     return NULL;
 }
 
@@ -149,6 +149,6 @@ void exibir_musica_atual(Playlist* playlist) {
         Musica* m = playlist->atual;
         printf("Tocando agora: %s - %s (%d segundos)\n", m->titulo, m->artista, m->duracao);
     } else {
-        printf("Nenhuma música está sendo tocada.\n");
+        printf("Nenhuma musica está sendo tocada.\n");
     }
 }
